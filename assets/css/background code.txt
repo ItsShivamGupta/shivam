@@ -1,0 +1,10 @@
+}
+#hero:before {
+  content: "";
+  background: rgba(253, 253, 253, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
