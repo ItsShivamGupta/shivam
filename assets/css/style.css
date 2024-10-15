@@ -1052,7 +1052,7 @@ section {
 
 /* Custom Rounded Sky Blue Scrollbar with Transparent Background */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
