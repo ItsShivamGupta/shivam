@@ -1049,3 +1049,22 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+/* Custom Rounded Sky Blue Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: skyblue;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+/* Firefox Scrollbar */
+scrollbar-width: thin;
+scrollbar-color: skyblue #f1f1f1;
