@@ -1050,21 +1050,21 @@ section {
   font-size: 13px;
 }
 
-/* Custom Rounded Sky Blue Scrollbar */
+/* Custom Rounded Sky Blue Scrollbar with Transparent Background */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: skyblue;
     border-radius: 10px;
-    border: 3px solid #f1f1f1;
+    border: 3px solid transparent;
 }
 
 /* Firefox Scrollbar */
 scrollbar-width: thin;
-scrollbar-color: skyblue #f1f1f1;
+scrollbar-color: skyblue transparent;
