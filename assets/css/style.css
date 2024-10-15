@@ -1050,9 +1050,9 @@ section {
   font-size: 13px;
 }
 
-/* Custom Rounded Sky Blue Scrollbar with Transparent Background */
+//* Custom Rounded Scrollbar with #0563BB Color and Transparent Background */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -1060,11 +1060,11 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: skyblue;
+    background-color: #0563BB;
     border-radius: 10px;
     border: 3px solid transparent;
 }
 
 /* Firefox Scrollbar */
 scrollbar-width: thin;
-scrollbar-color: skyblue transparent;
+scrollbar-color: #0563BB transparent;
