@@ -1050,7 +1050,7 @@ section {
   font-size: 13px;
 }
 
-//* Custom Rounded Scrollbar with #0563BB Color and Transparent Background */
+/* Custom Rounded Scrollbar with #0563BB Color and Transparent Background */
 ::-webkit-scrollbar {
     width: 12px;
 }
