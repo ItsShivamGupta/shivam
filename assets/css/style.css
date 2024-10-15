@@ -1052,7 +1052,7 @@ section {
 
 /* Custom Rounded Scrollbar with #0563BB Color and Transparent Background */
 ::-webkit-scrollbar {
-    width: 10px;  /* Width of the scrollbar */
+    width: 5px;  /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
