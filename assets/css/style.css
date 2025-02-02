@@ -1050,9 +1050,18 @@ section {
   font-size: 13px;
 }
 
-/* Custom Rounded Scrollbar with #0563BB Color and Transparent Background */
+/* Custom Rounded Scrollbar with Auto-hide Feature */
+/* Default state - hidden scrollbar */
+html {
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* Hide scrollbar by default for Webkit */
 ::-webkit-scrollbar {
     width: 5px;  /* Width of the scrollbar */
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 ::-webkit-scrollbar-track {
@@ -1069,6 +1078,19 @@ section {
     background-color: #034a8f;  /* Darker blue when hovering */
 }
 
-/* Firefox Scrollbar */
-scrollbar-width: thin;
-scrollbar-color: #0563BB transparent;
+/* Show scrollbar when hovering over scrollable area */
+*:hover::-webkit-scrollbar {
+    opacity: 1;
+}
+
+/* Firefox - show scrollbar on hover */
+* {
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 0.3s ease;
+}
+
+*:hover {
+    scrollbar-width: thin;
+    scrollbar-color: #0563BB transparent;
+}
