@@ -1050,52 +1050,43 @@ section {
   font-size: 13px;
 }
 
-/* Hide scrollbar by default while maintaining functionality */
-* {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+/* The main scrollable container - add a class .content-scrollable to your scrollable element */
+.content-scrollable {
+    overflow-y: auto;
 }
 
-/* Hide scrollbar but keep functionality */
-*::-webkit-scrollbar {
-    display: none;
-}
-
-/* Show scrollbar only when scrolling */
-*:hover::-webkit-scrollbar {
-    display: block;
+/* Initial scrollbar styling */
+::-webkit-scrollbar {
     width: 5px;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
-/* Custom scrollbar styling */
-*:hover::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: transparent;
 }
 
-*:hover::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: #0563BB;
     border-radius: 10px;
     border: 2px solid transparent;
-    opacity: 0;
-    animation: fadeIn 0.3s ease forwards;
 }
 
-*:hover::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background-color: #034a8f;
 }
 
-/* Animation for smooth appearance/disappearance */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #0563BB transparent;
 }
 
-/* Optional: Hide scrollbar after 1 second of no scrolling */
-*:hover:not(:hover)::-webkit-scrollbar-thumb {
-    animation: fadeOut 0.3s ease forwards;
+/* JavaScript required to toggle this class on scroll */
+.scrolling::-webkit-scrollbar {
+    opacity: 1;
 }
 
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+.scrolling::-webkit-scrollbar-thumb {
+    background-color: #0563BB;
 }
