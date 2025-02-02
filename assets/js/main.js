@@ -262,3 +262,19 @@
   });
 
 })()
+
+let timeout;
+const content = document.querySelector('.content-scrollable'); // Add this class to your scrollable element
+
+content.addEventListener('scroll', () => {
+    // Add scrolling class when scrolling starts
+    content.classList.add('scrolling');
+    
+    // Clear the previous timeout
+    clearTimeout(timeout);
+    
+    // Set a new timeout to remove the class
+    timeout = setTimeout(() => {
+        content.classList.remove('scrolling');
+    }, 1000); // Scrollbar will hide 1 second after scrolling stops
+});
