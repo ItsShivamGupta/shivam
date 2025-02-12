@@ -278,3 +278,14 @@ content.addEventListener('scroll', () => {
         content.classList.remove('scrolling');
     }, 1000); // Scrollbar will hide 1 second after scrolling stops
 });
+
+let scrollTimeout;
+const scrollableElement = document.querySelector('.content-scrollable');
+
+scrollableElement.addEventListener('scroll', () => {
+    scrollableElement.classList.add('scrolling');
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        scrollableElement.classList.remove('scrolling');
+    }, 1000); // Adjust timeout duration as needed (1000ms = 1 second)
+});
