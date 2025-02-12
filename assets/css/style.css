@@ -1052,51 +1052,39 @@ section {
 
 /* The main scrollable container */
 .content-scrollable {
-    overflow-y: auto;
+    overflow-y: overlay; /* Prevents scrollbar space reservation in WebKit browsers */
+    overflow-y: auto;    /* Fallback for other browsers */
 }
 
-/* Hide scrollbar by default while preserving functionality */
+/* WebKit scrollbar styling */
 ::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
-    transition: width 0.2s ease;
+    width: 0;            /* Start with zero width */
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
-/* Remove the track (grey area) */
 ::-webkit-scrollbar-track {
-    display: none;
+    background: transparent;
 }
 
-/* Style the thumb but initially hidden */
 ::-webkit-scrollbar-thumb {
     background-color: #0563BB;
     border-radius: 10px;
+    border: 2px solid transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #034a8f;
 }
 
-/* Firefox scrollbar - hidden by default */
+/* Firefox scrollbar (unchanged) */
 * {
-    scrollbar-width: none;
+    scrollbar-width: thin;
     scrollbar-color: #0563BB transparent;
 }
 
-/* Show scrollbar when scrolling - requires JavaScript to toggle this class */
+/* Active scrollbar state */
 .scrolling::-webkit-scrollbar {
-    width: 5px;
+    width: 5px;         /* Expand to full width when scrolling */
+    opacity: 1;
 }
-
-/* Add this JavaScript to make it work */
-document.addEventListener('scroll', function() {
-    document.body.classList.add('scrolling');
-    
-    // Clear the previous timeout
-    clearTimeout(window.scrollEndTimer);
-    
-    // Set a new timeout
-    window.scrollEndTimer = setTimeout(function() {
-        document.body.classList.remove('scrolling');
-    }, 1000); // Hide after 1 second of no scrolling
-}, true);
