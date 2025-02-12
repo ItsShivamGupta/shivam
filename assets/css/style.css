@@ -1050,43 +1050,53 @@ section {
   font-size: 13px;
 }
 
-/* The main scrollable container - add a class .content-scrollable to your scrollable element */
+/* The main scrollable container */
 .content-scrollable {
     overflow-y: auto;
 }
 
-/* Initial scrollbar styling */
+/* Hide scrollbar by default while preserving functionality */
 ::-webkit-scrollbar {
-    width: 5px;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-track {
+    width: 0;
     background: transparent;
+    transition: width 0.2s ease;
 }
 
+/* Remove the track (grey area) */
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* Style the thumb but initially hidden */
 ::-webkit-scrollbar-thumb {
     background-color: #0563BB;
     border-radius: 10px;
-    border: 2px solid transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #034a8f;
 }
 
-/* Firefox scrollbar */
+/* Firefox scrollbar - hidden by default */
 * {
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scrollbar-color: #0563BB transparent;
 }
 
-/* JavaScript required to toggle this class on scroll */
+/* Show scrollbar when scrolling - requires JavaScript to toggle this class */
 .scrolling::-webkit-scrollbar {
-    opacity: 1;
+    width: 5px;
 }
 
-.scrolling::-webkit-scrollbar-thumb {
-    background-color: #0563BB;
-}
+/* Add this JavaScript to make it work */
+document.addEventListener('scroll', function() {
+    document.body.classList.add('scrolling');
+    
+    // Clear the previous timeout
+    clearTimeout(window.scrollEndTimer);
+    
+    // Set a new timeout
+    window.scrollEndTimer = setTimeout(function() {
+        document.body.classList.remove('scrolling');
+    }, 1000); // Hide after 1 second of no scrolling
+}, true);
